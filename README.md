@@ -14,7 +14,8 @@ A modern Flutter application built for cross-platform use, featuring animated UI
 
 | 📝 Sign In Screen | 🔑 Sign Up Screen |
 |:-----------------:|:----------------:|
-| <img width="444" height="936" alt="Image" src="https://github.com/user-attachments/assets/44d720c2-1495-4ca9-9ea9-90c2a92b8d46" /> |<img width="441" height="934" alt="Image" src="https://github.com/user-attachments/assets/e740fe22-b3b4-440a-b4fc-a08f6da623e7" /> |
+| <img width="418" height="852" alt="Image" src="https://github.com/user-attachments/assets/b4639da8-186b-4eb7-8fb8-0c981fd9217b" /> | <img width="421" height="847" alt="Image" src="https://github.com/user-attachments/assets/84781217-04ce-4872-99dd-308dcb458c7b" />
+|
 
 ## 🛠️ Getting Started
 
