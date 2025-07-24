@@ -1,8 +1,9 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:iti/screens/sign_in_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(DevicePreview(enabled: true, builder: (context) => const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -13,9 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
       theme: ThemeData(scaffoldBackgroundColor: Colors.white),
-      home: const SignInScreen(),
+      home: const LoginScreen(),
     );
   }
 }

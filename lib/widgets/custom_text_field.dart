@@ -1,4 +1,3 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -12,56 +11,49 @@ class CustomTextField extends StatelessWidget {
     this.suffixIcon,
     this.controller,
     this.validator,
-    this.errorText,
   });
   final String? hintText;
   final bool obscureText;
   final Function(String)? onChanged;
-  final Widget? prefixIcon;
-  final Widget? suffixIcon;
+  final IconData? prefixIcon;
+  final IconData? suffixIcon;
   final VoidCallback? onIconPressed;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
-  final String? errorText;
 
   @override
   Widget build(BuildContext context) {
-    return FadeInDown(
-      duration: const Duration(milliseconds: 500),
-      child: TextFormField(
-        controller: controller,
-        validator:
-            validator ??
-            (value) {
-              if (value == null || value.isEmpty) {
-                return 'This field is required';
-              }
-              return null;
-            },
+    return TextFormField(
+      controller: controller,
+      validator:
+          validator ??
+          (value) {
+            if (value == null || value.isEmpty) {
+              return 'This field is required';
+            }
+            return null;
+          },
 
-        obscureText: obscureText,
-        onChanged: onChanged,
-        decoration: InputDecoration(
-          fillColor: Color(0xffEFE4F3),
-          filled: true,
-          hintText: hintText,
-          hintStyle: TextStyle(color: Colors.grey[600]),
+      textAlign: TextAlign.right,
+      obscureText: obscureText,
+      decoration: InputDecoration(
+        hintText: hintText,
+        prefixIcon: Icon(prefixIcon),
 
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Color(0xffEFE4F3)),
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Color(0xffEFE4F3)),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Color(0xffEFE4F3)),
-          ),
-          suffixIcon: suffixIcon,
-          prefixIcon: prefixIcon,
+        filled: true,
+        fillColor: Colors.white,
+
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide.none,
         ),
+
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: Color(0xffEFE4F3)),
+        ),
+
+        suffixIcon: Icon(suffixIcon),
       ),
     );
   }
