@@ -1,21 +1,65 @@
 # 🚀 ITI Flutter App
 
-A modern Flutter application built for cross-platform use, featuring animated UI, custom widgets, and user authentication screens.
+A modern multi-screen Flutter application that features smooth animations, user authentication, OTP verification, player listing, and profile display. Designed with clean architecture and reusable components.
+
+---
 
 ## ✨ Features
 
-- 🎉 Beautiful onboarding and authentication screens (Sign In, Sign Up)
-- 🧩 Custom reusable widgets
-- 💫 Animated transitions using [animate_do](https://pub.dev/packages/animate_do)
-- ✅ Form validation and error handling
-- 📱 Responsive design for mobile and desktop platforms
+- 🎨 Elegant, animated, and responsive UI
+- 🔐 Full authentication flow (Sign In / Sign Up)
+- 🔢 OTP verification screen (6-digit input)
+- ⚽ Players list with image, name, and position
+- 👤 Profile screen with user image and personal info
+- 🧱 Reusable custom widgets (e.g., `CustomTextField`)
+- 💫 Animations with [animate_do](https://pub.dev/packages/animate_do)
+- 📱 Adaptive layout for different screen sizes
+
+---
+
+## 📱 Screens Overview
+
+### 🔑 Login Screen
+- Input fields for phone number and password
+- Form validation and styled button
+- Animated login form using `FadeInLeft`
+- Navigation to Sign Up or Home
+
+### 🆕 Sign Up Screen
+- Styled similar to login
+- Allows creating new accounts
+
+### 📩 OTP Screen
+- 6-digit verification input
+- Clean and simple UI with confirmation button
+
+### 🏠 Home View
+- List of football players using `ListView.builder`
+- Each player shows:
+  - Image (from URL)
+  - Name
+  - Position
+- Animated list items (`FadeInLeft`)
+
+### 👤 Profile View
+- Contains:
+  - User image (from assets)
+  - Name
+  - Job title
+  - Email
+  - Phone number
+- Card-based layout for neat presentation
+
+---
 
 ## 🖼️ Screenshots
 
-| 📝 Sign In Screen | 🔑 Sign Up Screen |
-|:-----------------:|:----------------:|
-| <img width="418" height="852" alt="Image" src="https://github.com/user-attachments/assets/b4639da8-186b-4eb7-8fb8-0c981fd9217b" /> | <img width="421" height="847" alt="Image" src="https://github.com/user-attachments/assets/84781217-04ce-4872-99dd-308dcb458c7b" />
-|
+| 🔐 Login Screen | 🔑 Sign Up Screen | 📩 OTP Screen | ⚽ Players List | 👤 Profile View |
+| <img width="434" height="814" alt="Image" src="https://github.com/user-attachments/assets/135ab619-3f54-49f1-a11d-97d8df78f520" /> | <img width="425" height="827" alt="Image" src="https://github.com/user-attachments/assets/685b99f1-8a23-41f3-9261-955b5591caf8" /> |
+ <img width="426" height="825" alt="Image" src="https://github.com/user-attachments/assets/213e8fdf-fb64-49f5-9d64-9581ed3e7169" /> |
+ <img width="445" height="825" alt="Image" src="https://github.com/user-attachments/assets/60c5c319-ab13-476e-b5fe-46621d666c5a" /> |  <img width="447" height="818" alt="Image" src="https://github.com/user-attachments/assets/699b1bde-e2a3-4bfe-a317-08ae4ac95312" /> |  
+
+---
 
 ## 🛠️ Getting Started
 
@@ -47,15 +91,18 @@ A modern Flutter application built for cross-platform use, featuring animated UI
 
 ```
 lib/
-  main.dart                # App entry point
+  main.dart                   # App entry point
   screens/
-    sign_in_screen.dart    # Sign In UI and logic
-    sign_up_screen.dart    # Sign Up UI and logic
+    login_screen.dart         # Login UI
+    sign_up_screen.dart       # Sign Up UI
+    otp_screen.dart           # OTP verification
+    home_view.dart            # Player list
+    profile_view.dart         # User profile
+    main_sceewn.dart          # Bottom Navigation main screen
   widgets/
-    custom_text_field.dart # Reusable text field widget
-android/                   # Android platform files
-ios/                       # iOS platform files
-windows/                   # Windows platform files
+    custom_text_field.dart    # Reusable text field widget
+assets/
+  elnagar.png                 # User image
 ```
 
 ## 🚦 Usage
