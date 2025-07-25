@@ -1,6 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:iti/screens/main_sceewn.dart';
+import 'package:iti/screens/main_view.dart';
 import 'package:iti/screens/sign_up_screen.dart';
 import 'package:iti/widgets/custom_text_field.dart';
 

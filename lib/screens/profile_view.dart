@@ -9,7 +9,8 @@ class ProfileView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('My Profile'),
         centerTitle: true,
-        backgroundColor: const Color(0xFF007E9F),
+        backgroundColor: Colors.amber,
+        automaticallyImplyLeading: false,
       ),
       body: Center(
         child: Padding(
@@ -34,7 +35,7 @@ class ProfileView extends StatelessWidget {
                     'Mahmoud Elnagar',
                     style: TextStyle(
                       fontSize: 24,
-                      color: Color(0xFF007E9F),
+                      color: Colors.amber,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
