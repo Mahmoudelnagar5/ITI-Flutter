@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iti/core/utils/app_color.dart';
@@ -27,20 +28,26 @@ class HomeView extends StatelessWidget {
                 const CustomAppBar(),
                 const SizedBox(height: 35),
 
-                Text(
-                  'Hello , Mahmoud',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 34,
-                    fontWeight: FontWeight.bold,
+                FadeInRight(
+                  duration: const Duration(milliseconds: 500),
+                  child: Text(
+                    'Hello , Mahmoud',
+                    style: GoogleFonts.montserrat(
+                      fontSize: 34,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 16),
-                Text(
-                  'What do you want to buy?',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 23,
-                    fontWeight: FontWeight.bold,
-                    // color: Colors.white.withOpacity(0.7),
+                FadeInRight(
+                  duration: const Duration(milliseconds: 500),
+                  child: Text(
+                    'What do you want to buy?',
+                    style: GoogleFonts.montserrat(
+                      fontSize: 23,
+                      fontWeight: FontWeight.bold,
+                      // color: Colors.white.withOpacity(0.7),
+                    ),
                   ),
                 ),
               ],

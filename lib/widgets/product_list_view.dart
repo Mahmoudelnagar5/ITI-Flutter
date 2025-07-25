@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 import 'product_card.dart';
@@ -42,11 +43,14 @@ class ProductListView extends StatelessWidget {
       // shrinkWrap: true,
       itemCount: products.length,
       itemBuilder: (context, index) {
-        return ProductCard(
-          title: products[index]['title'],
-          price: products[index]['price'],
-          imageUrl: products[index]['imageUrl'],
-          description: products[index]['description'],
+        return FadeInRight(
+          duration: const Duration(milliseconds: 800),
+          child: ProductCard(
+            title: products[index]['title'],
+            price: products[index]['price'],
+            imageUrl: products[index]['imageUrl'],
+            description: products[index]['description'],
+          ),
         );
       },
     );
