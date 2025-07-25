@@ -1,66 +1,108 @@
 # 🚀 ITI Flutter App
 
-A modern multi-screen Flutter application that features smooth animations, user authentication, OTP verification, player listing, and profile display. Designed with clean architecture and reusable components.
+A modern Flutter e-commerce UI showcasing products, with authentication, OTP verification, and modular architecture using reusable widgets.
 
 ---
 
 ## ✨ Features
 
-- 🎨 Elegant, animated, and responsive UI
+- 🎨 Clean and modern UI with layered layout
 - 🔐 Full authentication flow (Sign In / Sign Up)
-- 🔢 OTP verification screen (6-digit input)
-- ⚽ Players list with image, name, and position
-- 👤 Profile screen with user image and personal info
-- 🧱 Reusable custom widgets (e.g., `CustomTextField`)
-- 💫 Animations with [animate_do](https://pub.dev/packages/animate_do)
-- 📱 Adaptive layout for different screen sizes
+- 🔢 OTP verification screen
+- 🛍️ Home screen with product list and categories
+- 👤 Profile screen with user info
+- 🧱 Modular widget structure (e.g., `ProductCard`, `CategoryListView`)
+- 📱 Responsive and adaptive design
 
 ---
 
 ## 📱 Screens Overview
 
-### 🔑 Login Screen
-- Input fields for phone number and password
-- Form validation and styled button
-- Animated login form using `FadeInLeft`
+### 🔐 Login Screen
+- Phone number + password input
+- Validation + animations
 - Navigation to Sign Up or Home
 
 ### 🆕 Sign Up Screen
 - Styled similar to login
-- Allows creating new accounts
+- Create new account
 
 ### 📩 OTP Screen
-- 6-digit verification input
-- Clean and simple UI with confirmation button
+- 6-digit verification input field
+- Confirm button
 
-### 🏠 Home View
-- List of football players using `ListView.builder`
-- Each player shows:
-  - Image (from URL)
-  - Name
-  - Position
-- Animated list items (`FadeInLeft`)
+### 🏠 Home View (Updated)
+- Layered design with:
+  - Welcome header
+  - Search bar
+  - Category horizontal list
+  - Product vertical list using `ProductCard`
+- Products include:
+  - Image
+  - Title
+  - Price
+  - Description
+  - Add to Cart button
+  - Favorite toggle button
 
 ### 👤 Profile View
-- Contains:
-  - User image (from assets)
-  - Name
-  - Job title
-  - Email
-  - Phone number
-- Card-based layout for neat presentation
+- Shows user image, name, job, contact
+- Card layout with details
 
 ---
 
+## 📂 Project Structure
+```
+lib/
+├── core/
+│   ├── themes/
+│   │   └── light_theme.dart
+│   └── utils/
+│       └── app_color.dart
+│
+├── screens/
+│   ├── home_view.dart          # Updated home screen with product list
+│   ├── main_view.dart
+│   ├── otp_screen.dart
+│   ├── profile_view.dart
+│   ├── search_view.dart
+│   ├── sign_in_screen.dart
+│   └── sign_up_screen.dart
+│
+├── widgets/
+│   ├── category_item.dart
+│   ├── category_list_view.dart
+│   ├── custom_app_bar.dart
+│   ├── custom_text_field.dart
+│   ├── product_card.dart       # Product display widget
+│   ├── product_list_view.dart  # List of products
+│   └── search_dield.dart       # Search bar widget
+│
+└── main.dart                   # App entry point
+
+
+```
 ## 🖼️ Screenshots
 
-| 🔐 Login Screen | 🔑 Sign Up Screen | 📩 OTP Screen | ⚽ Players List | 👤 Profile View |
+| 🔐 Login Screen | 🔑 Sign Up Screen |
+|:-----------------:|:----------------:|
 | <img width="434" height="814" alt="Image" src="https://github.com/user-attachments/assets/135ab619-3f54-49f1-a11d-97d8df78f520" /> | <img width="425" height="827" alt="Image" src="https://github.com/user-attachments/assets/685b99f1-8a23-41f3-9261-955b5591caf8" /> |
- <img width="426" height="825" alt="Image" src="https://github.com/user-attachments/assets/213e8fdf-fb64-49f5-9d64-9581ed3e7169" /> |
- <img width="445" height="825" alt="Image" src="https://github.com/user-attachments/assets/60c5c319-ab13-476e-b5fe-46621d666c5a" /> |  <img width="447" height="818" alt="Image" src="https://github.com/user-attachments/assets/699b1bde-e2a3-4bfe-a317-08ae4ac95312" /> |  
 
+| 📩 OTP Screen | 🏠 Home Screen |
+|:-----------------:|:----------------:|
+| <img width="426" height="825" alt="Image" src="https://github.com/user-attachments/assets/213e8fdf-fb64-49f5-9d64-9581ed3e7169" /> | <img width="436" height="822" alt="Image" src="https://github.com/user-attachments/assets/aa8c0823-9e52-44d6-bd7f-0b491c457005" /> |  
+
+|👤 Profile View |
+|:----------------:|
+
+<img width="410" height="816" alt="Image" src="https://github.com/user-attachments/assets/51d5354b-d93d-434e-8814-cf78fe031129" />
 ---
 
+## 📱 Demo
+
+https://github.com/user-attachments/assets/f33f1308-3f26-47b6-aa36-f95699be1b48
+
+---
 ## 🛠️ Getting Started
 
 ### 📋 Prerequisites
@@ -87,23 +129,6 @@ A modern multi-screen Flutter application that features smooth animations, user 
    flutter run
    ```
 
-## 📂 Project Structure
-
-```
-lib/
-  main.dart                   # App entry point
-  screens/
-    login_screen.dart         # Login UI
-    sign_up_screen.dart       # Sign Up UI
-    otp_screen.dart           # OTP verification
-    home_view.dart            # Player list
-    profile_view.dart         # User profile
-    main_sceewn.dart          # Bottom Navigation main screen
-  widgets/
-    custom_text_field.dart    # Reusable text field widget
-assets/
-  elnagar.png                 # User image
-```
 
 ## 🚦 Usage
 
