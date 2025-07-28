@@ -2,9 +2,11 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iti/bloc/sign_up_bloc/sign_up_bloc.dart';
-import 'package:iti/screens/otp_screen.dart';
 import 'package:iti/screens/sign_in_screen.dart';
 import 'package:iti/widgets/custom_text_field.dart';
+
+import '../core/utils/app_validtion.dart';
+import '../core/widgets/toast_message.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -45,6 +47,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: FadeInLeft(
                   duration: const Duration(milliseconds: 500),
                   child: Form(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     key: formKey,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,17 +65,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         const SizedBox(height: 30),
                         CustomTextField(
                           controller: nameController,
+
                           hintText: 'الاسم',
                           suffixIcon: Icons.person_outline,
                         ),
                         const SizedBox(height: 16),
                         CustomTextField(
+                          validator: AppValidtion.validationEmailMethod(
+                            context: context,
+                          ),
                           controller: emailController,
-                          hintText: 'الاميل',
+                          hintText: 'البريد الإلكتروني',
                           suffixIcon: Icons.email_outlined,
                         ),
                         const SizedBox(height: 16),
                         CustomTextField(
+                          validator: AppValidtion.validationPasswordMethod(
+                            context: context,
+                          ),
                           controller: passwordController,
                           hintText: 'كلمة المرور',
                           suffixIcon: Icons.lock_outline,
@@ -81,6 +91,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         const SizedBox(height: 16),
                         CustomTextField(
+                          validator:
+                              AppValidtion.validationConfirmPasswordMethod(
+                                context: context,
+                                passwordController: passwordController,
+                              ),
                           controller: confirmPasswordController,
                           hintText: 'تأكيد كلمة المرور',
                           suffixIcon: Icons.lock_outline,
@@ -92,20 +107,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         BlocConsumer<SignUpBloc, SignUpState>(
                           listener: (context, state) {
                             if (state is SignUpFailure) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text(state.message)),
-                              );
+                              showToastMessage(state.message, Colors.red);
+                              // ScaffoldMessenger.of(context).showSnackBar(
+                              //   SnackBar(content: Text(state.message)),
+                              // );
                             }
                             if (state is SignUpSuccess) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text('تم إنشاء الحساب بنجاح'),
-                                ),
+                              showToastMessage(
+                                'تم إنشاء الحساب بنجاح',
+                                Colors.green,
                               );
-                              Navigator.push(
+                              // ScaffoldMessenger.of(context).showSnackBar(
+                              //   const SnackBar(
+                              //     content: Text('تم إنشاء الحساب بنجاح'),
+                              //   ),
+                              // );
+                              Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const OtpScreen(),
+                                  builder: (context) => const LoginScreen(),
                                 ),
                               );
                             }
