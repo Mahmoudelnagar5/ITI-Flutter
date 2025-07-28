@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../core/utils/app_validtion.dart';
+
 part 'sign_up_event.dart';
 part 'sign_up_state.dart';
 
@@ -8,7 +10,6 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   SignUpBloc() : super(SignUpInitial()) {
     on<SignUpButtonPressedEvent>(_onSignUpEvent);
   }
-
   Future<void> _onSignUpEvent(
     SignUpButtonPressedEvent event,
     Emitter<SignUpState> emit,
@@ -18,24 +19,25 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     // Simulate network delay
     await Future.delayed(const Duration(seconds: 2));
 
-    if (event.name.isEmpty ||
-        event.email.isEmpty ||
-        event.password.isEmpty ||
-        event.confirmPassword.isEmpty) {
+    if (!AppValidtion.isNotEmpty(
+      event.name,
+      event.email,
+      event.password,
+      event.confirmPassword,
+    )) {
       emit(SignUpFailure(message: "جميع الحقول مطلوبة"));
       return;
     }
-    if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(event.email)) {
+    if (!AppValidtion.isValidEmail(event.email)) {
       emit(SignUpFailure(message: "البريد الالكتروني غير صحيح"));
       return;
     }
-    if (event.password != event.confirmPassword) {
-      emit(SignUpFailure(message: "كلمتا المرور غير متطابقتين"));
+    if (!AppValidtion.isValidPassword(event.password)) {
+      emit(SignUpFailure(message: "كلمة المرور يجب ان تكون على الاقل 6 حروف"));
       return;
     }
-
-    if (event.password.length < 6) {
-      emit(SignUpFailure(message: "كلمة المرور يجب ان تكون اكثر من 6 حروف"));
+    if (!AppValidtion.isMatchPassword(event.password, event.confirmPassword)) {
+      emit(SignUpFailure(message: "كلمة المرور غير متطابقة"));
       return;
     }
     emit(SignUpSuccess());
