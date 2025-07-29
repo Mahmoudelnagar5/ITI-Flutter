@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:iti/core/utils/app_color.dart';
 import 'package:iti/screens/home_view.dart';
 import 'package:iti/screens/profile_view.dart';
 
+import '../core/themes/utils/app_color.dart';
 import 'search_view.dart';
 
 class MainView extends StatefulWidget {

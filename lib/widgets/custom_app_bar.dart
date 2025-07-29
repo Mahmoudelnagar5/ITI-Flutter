@@ -1,7 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
-import '../core/utils/app_color.dart';
+import '../core/themes/utils/app_color.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});

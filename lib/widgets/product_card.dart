@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iti/core/utils/app_color.dart';
+
+import '../core/themes/utils/app_color.dart';
 
 class ProductCard extends StatefulWidget {
   final String title;

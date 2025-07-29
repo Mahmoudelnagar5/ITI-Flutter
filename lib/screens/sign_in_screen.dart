@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iti/core/widgets/toast_message.dart';
+import 'package:iti/models/repo/auth_repo.dart';
 import 'package:iti/screens/main_view.dart';
 import 'package:iti/screens/sign_up_screen.dart';
 import 'package:iti/widgets/custom_text_field.dart';
@@ -24,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SignInBloc(),
+      create: (context) => SignInBloc(AuthRepoImpl()),
       child: Scaffold(
         backgroundColor: Colors.white,
         body: Align(

@@ -5,8 +5,9 @@ import 'package:iti/bloc/sign_up_bloc/sign_up_bloc.dart';
 import 'package:iti/screens/sign_in_screen.dart';
 import 'package:iti/widgets/custom_text_field.dart';
 
-import '../core/utils/app_validtion.dart';
+import '../core/themes/utils/app_validtion.dart';
 import '../core/widgets/toast_message.dart';
+import '../models/repo/auth_repo.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -26,7 +27,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SignUpBloc(),
+      create: (context) => SignUpBloc(AuthRepoImpl()),
       child: Scaffold(
         backgroundColor: Colors.white,
         body: Align(

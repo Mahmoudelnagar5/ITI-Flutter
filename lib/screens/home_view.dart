@@ -1,8 +1,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:iti/core/utils/app_color.dart';
 
+import '../core/themes/utils/app_color.dart';
 import '../widgets/category_list_view.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/product_list_view.dart';
